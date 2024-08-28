@@ -1,0 +1,23 @@
+<project name="twampstparser" default="test_all">
+    <property name="module.name" value="twampstparser"/>
+    <property file="${user.home}/EniqBuild/BH/build.properties"/>
+    <property name="ant.common" value="${cc.base}/tools/ant_common"/>
+    <property file="${ant.common}/common.properties"/>
+    <property name="module.build" value="${module.twampstparser.build}"/>
+    <property name="module.base" value="${module.twampstparser.base}"/>
+    <property name="module.dependants" value="${module.twampstparser.dependants}"/>
+    <import file="${ant.common}/common.xml"/>
+    <property name="tests.to.run" value="**/*Test.class"/>
+
+    <path id="twampstparser.lib.classpath">
+        <path refid="plaform.lib.classpath"/>
+        <path location="${module.common_utilities.pkg}"/>
+        <path location="${module.parser.pkg}"/>
+        <path location="${module.repository.pkg}"/>
+    </path>
+    <path id="twampstparser.test.classpath">
+        <path refid="platform.test.classpath"/>
+        <path refid="twampstparser.lib.classpath"/>
+        <path location="${eniq.plat.base}/adapters/dev/twampstparser/"/>
+    </path>
+</project>
